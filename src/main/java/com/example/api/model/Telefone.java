@@ -10,14 +10,14 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Telefone {
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
-
   private String numero;
 
   @org.hibernate.annotations.ForeignKey(name = "usuario_id")
-  @ManyToOne
+  @ManyToOne(optional = false) // Define o tipo da relação. Muitos telefones para 1 Usuario
   @JsonIgnore
   private Usuario usuario;
 
@@ -36,4 +36,13 @@ public class Telefone {
   public void setNumero(String numero) {
     this.numero = numero;
   }
+
+  public Usuario getUsuario() {
+    return usuario;
+  }
+
+  public void setUsuario(Usuario usuario) {
+    this.usuario = usuario;
+  }
+
 }
