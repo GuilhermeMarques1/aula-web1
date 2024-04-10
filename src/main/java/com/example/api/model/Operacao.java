@@ -14,7 +14,6 @@ public class Operacao {
   private Long id;
 
   private String nome;
-  private List<String> tags = new ArrayList<String>();
   private String descricao;
 
   public long getId() {
@@ -25,16 +24,8 @@ public class Operacao {
     return nome;
   }
 
-  public List<String> getTags() {
-    return tags;
-  }
-
   public String getDescricao() {
     return descricao;
-  }
-
-  public void setTags(List<String> tags) {
-    this.tags = tags;
   }
 
   public void setId(long id) {
