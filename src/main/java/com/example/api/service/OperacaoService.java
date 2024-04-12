@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.example.api.model.Operacao;
@@ -16,11 +17,20 @@ public class OperacaoService {
 
     @Override
     public UserDetails loadOperacaoById(Long id) throws UsernameNotFoundException {
-        return operacaoRepository.findById(id);
+        return (UserDetails) operacaoRepository.findById(id);
     }
     
-    @Override
     public Operacao loadOperacaoByDate(LocalDateTime date){
         return operacaoRepository.findByDate(date);
-    }   
+    }
+    
+    public Operacao loadOperacaoByCategoria(String categoria){
+        return operacaoRepository.findByDate(categoria);
+    }
+
+    public Operacao loadOperacoesGroupedByCategoria(){
+        return operacaoRepository.GroupByCategoria();
+    }
+
+
 }
