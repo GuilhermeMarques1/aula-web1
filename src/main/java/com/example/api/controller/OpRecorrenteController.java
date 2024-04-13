@@ -33,7 +33,7 @@ public class OpRecorrenteController {
     @PostMapping(value="/", produces="application/json")
     public ResponseEntity<OpRecorrente> insertNewProduct (@RequestBody OpRecorrente operacao){
 
-        Operacao produtoSalvo = opRecorrenteRepository.save(operacao);
+        OpRecorrente produtoSalvo = opRecorrenteRepository.save(operacao);
 
         return new ResponseEntity(produtoSalvo, HttpStatus.OK);
     } 
