@@ -15,9 +15,8 @@ public class OperacaoService {
     @Autowired
     private OperacaoRepository operacaoRepository;
 
-    @Override
-    public UserDetails loadOperacaoById(Long id) throws UsernameNotFoundException {
-        return (UserDetails) operacaoRepository.findById(id);
+    public Operacao loadOperacaoById(Long id) {
+        return operacaoRepository.findById(id);
     }
     
     public Operacao loadOperacaoByDate(LocalDateTime date){
@@ -25,7 +24,7 @@ public class OperacaoService {
     }
     
     public Operacao loadOperacaoByCategoria(String categoria){
-        return operacaoRepository.findByDate(categoria);
+        return operacaoRepository.findByCategoria(categoria);
     }
 
     public Operacao loadOperacoesGroupedByCategoria(){

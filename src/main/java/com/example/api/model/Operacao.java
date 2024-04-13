@@ -1,9 +1,6 @@
 
 package com.example.api.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
