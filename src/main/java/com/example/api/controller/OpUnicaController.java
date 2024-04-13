@@ -31,9 +31,9 @@ public class OpUnicaController {
     }
 
     @PostMapping(value = "/", produces = "application/json")
-    public ResponseEntity<OperacaoUnica> insertNewProduct(@RequestBody OperacaoUnica operacaoUnica) {
+    public ResponseEntity<OpUnica> insertNewProduct(@RequestBody OpUnica operacaoUnica) {
 
-        OperacaoUnica produtoSalvo = opUnicaRepository.save(operacaoUnica);
+        OpUnica produtoSalvo = opUnicaRepository.save(operacaoUnica);
 
         return new ResponseEntity(produtoSalvo, HttpStatus.OK);
     }

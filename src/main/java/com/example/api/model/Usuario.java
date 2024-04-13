@@ -3,8 +3,11 @@ package com.example.api.model;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.CascadeType;
@@ -126,5 +129,57 @@ public class Usuario implements UserDetails {
 
   public void setRole(UserRole role) {
       this.role = role;
+  }
+
+  @Override
+  public Collection<? extends GrantedAuthority> getAuthorities() {
+        // O Spring Security já tem algumas roles implementadas. Repare que 
+        // nesse método o retorno é uma colection, então cada usuário pode ter
+        // vários papéis (roles). Por exemplo, um ADMIN é ao mesmo tempo USER
+        // norma. Um CHEFE é ao mesmo tempo ADMIN e USER normal, ...
+        if (this.role == UserRole.ADMIN){
+          return List.of(
+              new SimpleGrantedAuthority("ROLE_ADMIN"),   // Admin
+              new SimpleGrantedAuthority("ROLE_USER")     // é ao mesmo tempo user normal
+              );
+      }else{
+          return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+      }
+  }
+
+  @Override
+  public String getPassword() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'getPassword'");
+  }
+
+  @Override
+  public String getUsername() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'getUsername'");
+  }
+
+  @Override
+  public boolean isAccountNonExpired() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'isAccountNonExpired'");
+  }
+
+  @Override
+  public boolean isAccountNonLocked() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'isAccountNonLocked'");
+  }
+
+  @Override
+  public boolean isCredentialsNonExpired() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'isCredentialsNonExpired'");
+  }
+
+  @Override
+  public boolean isEnabled() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'isEnabled'");
   }
 }
