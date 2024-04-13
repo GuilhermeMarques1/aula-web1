@@ -1,10 +1,9 @@
 package com.example.api.service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.example.api.model.Operacao;
@@ -15,7 +14,7 @@ public class OperacaoService {
     @Autowired
     private OperacaoRepository operacaoRepository;
 
-    public Operacao loadOperacaoById(Long id) {
+    public Optional<Operacao> loadOperacaoById(Long id) {
         return operacaoRepository.findById(id);
     }
     
