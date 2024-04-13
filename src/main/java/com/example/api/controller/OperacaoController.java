@@ -33,9 +33,9 @@ public class OperacaoController {
    @PostMapping(value="/", produces="application/json")
     public ResponseEntity<Operacao> insertNewProduct (@RequestBody Operacao operacao){
 
-        Operacao produtoSalvo = operacaoRepository.save(operacao);
+        Operacao operacaoSalvo = operacaoRepository.save(operacao);
 
-        return new ResponseEntity(produtoSalvo, HttpStatus.OK);
+        return new ResponseEntity(operacaoSalvo, HttpStatus.OK);
     }    
 
 }
