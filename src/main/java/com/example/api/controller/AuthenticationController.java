@@ -64,7 +64,7 @@ public class AuthenticationController {
         System.out.println(encryptedPassword);
         System.out.println(data.role());
 
-        Person newUser = new Person(data.login(), encryptedPassword, data.role(), "teste", "teste");
+        Person newUser = new Person(data.login(), encryptedPassword, data.role(), "teste", "teste2");
 
         this.usuarioRepository.save(newUser);
 

@@ -40,12 +40,12 @@ public class IndexController {
 
         Usuario usuario = new Person();
         usuario.setId(1L);
-        usuario.setLogin("user@gmail.com");
+        usuario.setEmail("user@gmail.com");
         usuario.setSenha("123");
 
         Usuario usuario2 = new Person();
         usuario2.setId(2L);
-        usuario2.setLogin("user2@gmail.com");
+        usuario2.setEmail("user2@gmail.com");
         usuario2.setSenha("123");        
 
         List<Usuario> list = new ArrayList<Usuario>();
@@ -71,10 +71,6 @@ public class IndexController {
     // Cadastrano usuario
     @PostMapping(value="/", produces="application/json")
     public ResponseEntity<Usuario> cadastrar (@RequestBody Usuario usuario){    
-        
-        for (int pos = 0; pos < usuario.getTelefones().size(); pos++){
-            usuario.getTelefones().get(pos).setUsuario(usuario);
-        }
 
         Usuario usuarioSalvo = usuarioRepository.save(usuario);
 

@@ -5,15 +5,22 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.security.core.userdetails.UserDetails;
+
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class Usuario implements Serializable {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "Usuario_Type")
+public class Usuario implements UserDetails {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
@@ -25,9 +32,29 @@ public class Usuario implements Serializable {
   private String CPF;
   private float valorConta;
 
+  private UserRole role;
+
 
   @OneToMany(mappedBy = "usuario", orphanRemoval = true, cascade = CascadeType.ALL)
   private List<Operacao> operacoes = new ArrayList<Operacao>();
+
+
+  public Usuario(){
+        
+  }
+
+  public Usuario(String login, String senha, String nome, UserRole role){
+      this.email = login;
+      this.senha = senha;
+      this.nome = nome;
+      this.role = role;
+  }
+
+  public Usuario(String login, String senha, UserRole role){
+      this.email = login;
+      this.senha = senha;
+      this.role = role;
+  }
 
   public long getId() {
     return id;
@@ -93,4 +120,11 @@ public class Usuario implements Serializable {
       this.valorConta = valorConta;
   }
   
+  public UserRole getRole() {
+      return role;
+  }
+
+  public void setRole(UserRole role) {
+      this.role = role;
+  }
 }
