@@ -4,6 +4,8 @@ package com.example.api.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -12,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.UniqueConstraint;
 
 @Entity
@@ -22,6 +25,11 @@ public class Operacao {
 
   private String nome;
   private String descricao;
+
+  @org.hibernate.annotations.ForeignKey(name="usuario_id")
+  @ManyToOne(optional = false)      // Define o tipo da relação. Muitos telefones para 1 Usuario
+  @JsonIgnore
+  private Usuario usuario;
 
   @ManyToMany(fetch=FetchType.EAGER)
   @JoinTable(name = "operacoes_categorias", 
