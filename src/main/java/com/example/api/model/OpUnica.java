@@ -7,7 +7,6 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @DiscriminatorValue("OpUnica")
 public class OpUnica extends Operacao {
     private float valor;

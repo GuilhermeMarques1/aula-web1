@@ -9,7 +9,6 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @DiscriminatorValue("OpRecorrente")
 public class OpRecorrente extends Operacao {
     private float valorRec;
