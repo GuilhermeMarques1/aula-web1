@@ -1,6 +1,9 @@
 package com.example.api.model;
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class OpUnica extends Operacao {
     private float valor;
     private LocalDateTime data;

@@ -3,6 +3,9 @@ package com.example.api.model;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class OpRecorrente extends Operacao {
     private float valorRec;
     private LocalDateTime dataInicial;
