@@ -1,12 +1,14 @@
 package com.example.api.model;
 import java.time.LocalDateTime;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@DiscriminatorValue("OpUnica")
 public class OpUnica extends Operacao {
     private float valor;
     private LocalDateTime data;
