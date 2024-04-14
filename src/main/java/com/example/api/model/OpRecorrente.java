@@ -4,8 +4,11 @@ package com.example.api.model;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class OpRecorrente extends Operacao {
     private float valorRec;
     private LocalDateTime dataInicial;
