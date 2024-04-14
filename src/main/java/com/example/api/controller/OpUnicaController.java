@@ -22,7 +22,7 @@ public class OpUnicaController {
     @Autowired
     private OpUnicaRepository opUnicaRepository;
 
-    @GetMapping(value = "/", produces = "application/json")
+    @GetMapping(value = "/OpUnica", produces = "application/json")
     public ResponseEntity<List<OpUnica>> getAllOperacoes() {
         List<OpUnica> operacoes = (List<OpUnica>) this.opUnicaRepository.findAll();
 

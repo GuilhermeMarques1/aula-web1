@@ -22,7 +22,7 @@ public class OpRecorrenteController {
     @Autowired
     private OpRecorrenteRepository opRecorrenteRepository;
 
-    @GetMapping(value="/", produces="application/json")
+    @GetMapping(value="/OpRecorrente", produces="application/json")
     public ResponseEntity<List<OpRecorrente>> getAllOperacoes(){
         List<OpRecorrente> operacoes = (List<OpRecorrente>) this.opRecorrenteRepository.findAll();
 

@@ -16,9 +16,9 @@ public interface OperacaoRepository extends CrudRepository<Operacao, Long> {
     @Query("select o from Operacao o join OpUnica opUni join OpRecorrente opRc where opUni.data = ?1 OR opRc.dataInicial = ?1")
     Operacao findByDate(LocalDateTime data);
 
-    @Query("select o from Operacao o join Categoria c where c.nome = ?1")
+    @Query("select o from Operacao o join Categoria c where c.Nome = ?1")
     Operacao findByCategoria(String categoria);
 
-    @Query("select o from Operacao o join Categoria c groupby c.nome")
-    Operacao GroupByCategoria();
+    // @Query("select o from Operacao o join Categoria c groupby c.nome")
+    // Operacao GroupByCategoria();
 }

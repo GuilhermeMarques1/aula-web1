@@ -26,9 +26,9 @@ public class OperacaoService {
         return operacaoRepository.findByCategoria(categoria);
     }
 
-    public Operacao loadOperacoesGroupedByCategoria(){
-        return operacaoRepository.GroupByCategoria();
-    }
+    // public Operacao loadOperacoesGroupedByCategoria(){
+    //     return operacaoRepository.GroupByCategoria();
+    // }
 
 
 }

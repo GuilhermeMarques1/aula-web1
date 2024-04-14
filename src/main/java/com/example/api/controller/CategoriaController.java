@@ -20,7 +20,7 @@ public class CategoriaController {
     @Autowired
    private CategoriaRepository categoriaRepository;
 
-   @GetMapping(value="/", produces="application/json")
+   @GetMapping(value="/Categoria", produces="application/json")
    public ResponseEntity<List<Categoria>> getAllOperacoes(){
     List<Categoria> operacoes = (List<Categoria>) this.categoriaRepository.findAll();
 
