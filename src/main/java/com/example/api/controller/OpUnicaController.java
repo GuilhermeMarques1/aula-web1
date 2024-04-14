@@ -17,7 +17,6 @@ import com.example.api.repository.OpUnicaRepository;
 
 @Controller("OpUnicaController")
 @RequestMapping(value = "/operacao")
-
 public class OpUnicaController {
 
     @Autowired

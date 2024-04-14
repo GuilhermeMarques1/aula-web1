@@ -16,7 +16,6 @@ import com.example.api.model.Categoria;
 
 @Controller("CategoriaController")
 @RequestMapping(value = "/categoria")
-
 public class CategoriaController {
     @Autowired
    private CategoriaRepository categoriaRepository;

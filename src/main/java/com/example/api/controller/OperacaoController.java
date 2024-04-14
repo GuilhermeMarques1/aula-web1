@@ -18,7 +18,6 @@ import com.example.api.model.Operacao;
 
 @Controller("OperacaoController")
 @RequestMapping(value = "/operacao")
-
 public class OperacaoController {
    @Autowired
    private OperacaoRepository operacaoRepository;

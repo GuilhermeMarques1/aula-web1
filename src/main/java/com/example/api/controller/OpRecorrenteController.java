@@ -17,7 +17,6 @@ import com.example.api.model.OpRecorrente;
 
 @Controller("OpRecorrenteController")
 @RequestMapping(value = "/operacao")
-
 public class OpRecorrenteController {
 
     @Autowired
