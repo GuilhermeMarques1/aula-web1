@@ -14,7 +14,7 @@ import com.example.api.repository.OpRecorrenteRepository;
 import com.example.api.model.OpRecorrente;
 
 @Controller("OpRecorrenteController")
-@RequestMapping(value = "/operacao")
+@RequestMapping(value = "/operacaoRecorrente")
 public class OpRecorrenteController {
 
     @Autowired
