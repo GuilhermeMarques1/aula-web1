@@ -20,14 +20,16 @@ public class CategoriaController {
     @Autowired
    private CategoriaRepository categoriaRepository;
 
-   @GetMapping(value="/Categoria", produces="application/json")
+@SuppressWarnings({ "rawtypes", "unchecked" })
+@GetMapping(value="/Categoria", produces="application/json")
    public ResponseEntity<List<Categoria>> getAllOperacoes(){
     List<Categoria> operacoes = (List<Categoria>) this.categoriaRepository.findAll();
 
     return new ResponseEntity(operacoes, HttpStatus.OK);
    }
 
-   @PostMapping(value="/", produces="application/json")
+@SuppressWarnings({ "rawtypes", "unchecked" })
+@PostMapping(value="/", produces="application/json")
     public ResponseEntity<Categoria> insertNewProduct (@RequestBody Categoria categoria){
 
         Categoria categoriaSalva = categoriaRepository.save(categoria);

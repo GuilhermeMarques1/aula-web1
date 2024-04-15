@@ -2,11 +2,9 @@ package com.example.api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +20,7 @@ public class OpRecorrenteController {
     @Autowired
     private OpRecorrenteRepository opRecorrenteRepository;
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     @GetMapping(value="/OpRecorrente", produces="application/json")
     public ResponseEntity<List<OpRecorrente>> getAllOperacoes(){
         List<OpRecorrente> operacoes = (List<OpRecorrente>) this.opRecorrenteRepository.findAll();
@@ -29,6 +28,7 @@ public class OpRecorrenteController {
         return new ResponseEntity(operacoes, HttpStatus.OK);
    }
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     @PostMapping(value="/", produces="application/json")
     public ResponseEntity<OpRecorrente> insertNewProduct (@RequestBody OpRecorrente operacao){
 

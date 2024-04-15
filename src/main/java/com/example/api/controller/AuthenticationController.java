@@ -30,6 +30,7 @@ public class AuthenticationController {
     @Autowired
     private TokenService tokenService;
 
+    @SuppressWarnings("rawtypes")
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody @Valid AuthenticationDTO data){
      
@@ -50,6 +51,7 @@ public class AuthenticationController {
         }
     }
 
+    @SuppressWarnings("rawtypes")
     @PostMapping("/register")
     public ResponseEntity register(@RequestBody @Valid RegisterDTO data){
         // Primeiro verifica se já não existe outro usuário cadastrado com o mesmo login
