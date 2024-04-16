@@ -28,8 +28,10 @@ public class IndexController {
     // Manipulando parâmetros
     @SuppressWarnings({ "rawtypes", "unchecked" })
     @GetMapping(value="/", produces="application/json")
-    public ResponseEntity init (){
-        return new ResponseEntity("Olá Usuário! ", HttpStatus.OK);
+    public ResponseEntity<List<Usuario>> getAllOperacoes() {
+        List<Usuario> operacoes = (List<Usuario>) this.usuarioRepository.findAll();
+
+        return new ResponseEntity(operacoes, HttpStatus.OK);
     }
 
     // Retornando objetos

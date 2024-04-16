@@ -29,12 +29,14 @@ public class Operacao {
   private String nome;
   private String descricao;
 
-  @SuppressWarnings("removal")
-  @org.hibernate.annotations.ForeignKey(name="usuario_id")
-  @ManyToOne(optional = false)      // Define o tipo da relação.
+  //@SuppressWarnings("removal")
+  //@org.hibernate.annotations.ForeignKey(name="usuario_id")
   @JsonIgnore
+  @org.hibernate.annotations.ForeignKey(name="usuario_id")
+  @ManyToOne(optional = false)
   private Usuario usuario;
 
+  @JsonIgnore
   @ManyToMany(fetch=FetchType.EAGER)
   @JoinTable(name = "operacoes_categorias", 
       uniqueConstraints = @UniqueConstraint (
@@ -52,8 +54,8 @@ public class Operacao {
       table = "categoria", 
       unique = false
   )
-)    
-  private List<Categoria> categorias = new ArrayList<Categoria>();
+  )    
+  public List<Categoria>categorias = new ArrayList<Categoria>();
 
   public long getId() {
     return id;
@@ -71,11 +73,27 @@ public class Operacao {
     this.id = id;
   }
 
-  public void setId(String nome) {
+  public void setNome(String nome) {
     this.nome = nome;
   }
 
   public void setDescricao(String descricao) {
     this.descricao = descricao;
+  }
+
+  public List<Categoria> getCategorias() {
+      return categorias;
+  }
+
+  public void setCategorias(List<Categoria> categorias) {
+      this.categorias = categorias;
+  }
+
+  public Usuario getUsuario() {
+      return usuario;
+  }
+
+  public void setUsuario(Usuario usuario) {
+      this.usuario = usuario;
   }
 }

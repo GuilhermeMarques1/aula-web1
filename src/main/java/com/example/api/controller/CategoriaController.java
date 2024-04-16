@@ -18,18 +18,18 @@ import com.example.api.model.Categoria;
 @RequestMapping(value = "/categoria")
 public class CategoriaController {
     @Autowired
-   private CategoriaRepository categoriaRepository;
+    private CategoriaRepository categoriaRepository;
 
-@SuppressWarnings({ "rawtypes", "unchecked" })
-@GetMapping(value="/", produces="application/json")
-   public ResponseEntity<List<Categoria>> getAllOperacoes(){
-    List<Categoria> operacoes = (List<Categoria>) this.categoriaRepository.findAll();
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @GetMapping(value="/", produces="application/json")
+    public ResponseEntity<List<Categoria>> getAllOperacoes(){
+    List<Categoria> categorias = (List<Categoria>) this.categoriaRepository.findAll();
 
-    return new ResponseEntity(operacoes, HttpStatus.OK);
+    return new ResponseEntity(categorias, HttpStatus.OK);
    }
 
-@SuppressWarnings({ "rawtypes", "unchecked" })
-@PostMapping(value="/", produces="application/json")
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @PostMapping(value="/", produces="application/json")
     public ResponseEntity<Categoria> insertNewProduct (@RequestBody Categoria categoria){
 
         Categoria categoriaSalva = categoriaRepository.save(categoria);

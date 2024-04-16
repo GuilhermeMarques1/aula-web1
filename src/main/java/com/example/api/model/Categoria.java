@@ -19,28 +19,12 @@ public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String Nome;
     private String Descricao;
 
-    @ManyToMany(fetch=FetchType.EAGER)
-    @JoinTable(name = "operacoes_categorias",
-      uniqueConstraints = @UniqueConstraint (
-      columnNames = {"operacao_id","categoria_id"}, 
-      name = "unique_operacao_categoria"
-    ), 
-    joinColumns = @JoinColumn(name = "categoria_id", 
-        referencedColumnName = "id", 
-        table = "categoria", 
-        unique = false
-    ), 
-    inverseJoinColumns = @JoinColumn (
-        name = "usuario_id", 
-        referencedColumnName = "id", 
-        table = "usuario", 
-        unique = false
-    )
-    )    
-  private List<Operacao> operacoes = new ArrayList<Operacao>();
+    @ManyToMany(fetch=FetchType.EAGER, mappedBy = "categorias")
+    public List<Operacao> operacoes = new ArrayList<Operacao>();
 
     public String getDescricao() {
         return Descricao;
@@ -56,5 +40,21 @@ public class Categoria {
 
     public void setNome(String nome) {
         Nome = nome;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<Operacao> getOperacoes() {
+        return operacoes;
+    }
+
+    public void setOperacoes(List<Operacao> operacoes) {
+        this.operacoes = operacoes;
     }
 }
