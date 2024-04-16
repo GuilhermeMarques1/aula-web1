@@ -33,10 +33,6 @@ public class AuthenticationController {
     @SuppressWarnings("rawtypes")
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody @Valid AuthenticationDTO data){
-     
-        // É uma boa prática armazenarmos as senhas do usuário como HASH no banco de dados. 
-        // Dessa maneira, caso haja um vazamento do BD, as senhas estarão criptografadas
-        // e não poderão ser diretamente acessadas. 
         var usernamePassword = new UsernamePasswordAuthenticationToken(data.login(), data.password());
 
         try{
@@ -55,12 +51,7 @@ public class AuthenticationController {
     @SuppressWarnings("rawtypes")
     @PostMapping("/register")
     public ResponseEntity register(@RequestBody @Valid RegisterDTO data){
-        // Primeiro verifica se já não existe outro usuário cadastrado com o mesmo login
         if(this.usuarioRepository.findByLogin(data.login()) != null) return ResponseEntity.badRequest().build();
-
-        // Caso não exista, vamos encriptar a senha para salvar no BD. A senha bruta do usuário 
-        // NÃO DEVE SER INSERIDA NO BD POR MEDIDAS DE SEGURANÇA.
-
 
         String encryptedPassword = new BCryptPasswordEncoder().encode(data.password());
         System.out.println(data.login());
