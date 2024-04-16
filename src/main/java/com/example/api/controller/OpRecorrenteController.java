@@ -30,7 +30,7 @@ public class OpRecorrenteController {
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
     @PostMapping(value="/", produces="application/json")
-    public ResponseEntity<OpRecorrente> insertNewProduct (@RequestBody OpRecorrente operacao){
+    public ResponseEntity<OpRecorrente> insertNewOperacao(@RequestBody OpRecorrente operacao){
 
         OpRecorrente produtoSalvo = opRecorrenteRepository.save(operacao);
 

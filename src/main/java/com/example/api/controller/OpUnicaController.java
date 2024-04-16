@@ -30,7 +30,7 @@ public class OpUnicaController {
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
     @PostMapping(value = "/", produces = "application/json")
-    public ResponseEntity<OpUnica> insertNewProduct(@RequestBody OpUnica operacaoUnica) {
+    public ResponseEntity<OpUnica> insertNewOperacao(@RequestBody OpUnica operacaoUnica) {
 
         OpUnica produtoSalvo = opUnicaRepository.save(operacaoUnica);
 
