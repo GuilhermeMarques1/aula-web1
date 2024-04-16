@@ -148,37 +148,31 @@ public class Usuario implements UserDetails {
 
   @Override
   public String getPassword() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'getPassword'");
+    return this.getSenha();
   }
 
   @Override
   public String getUsername() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'getUsername'");
+    return this.getEmail();
   }
 
   @Override
   public boolean isAccountNonExpired() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'isAccountNonExpired'");
+    return true;
   }
 
   @Override
   public boolean isAccountNonLocked() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'isAccountNonLocked'");
+    return true;
   }
 
   @Override
   public boolean isCredentialsNonExpired() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'isCredentialsNonExpired'");
+    return true;
   }
 
   @Override
   public boolean isEnabled() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'isEnabled'");
+    return true;
   }
 }

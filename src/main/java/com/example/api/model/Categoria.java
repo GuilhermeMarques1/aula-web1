@@ -40,7 +40,7 @@ public class Categoria {
         unique = false
     )
     )    
-  private List<Usuario> categorias = new ArrayList<Usuario>();
+  private List<Operacao> operacoes = new ArrayList<Operacao>();
 
     public String getDescricao() {
         return Descricao;

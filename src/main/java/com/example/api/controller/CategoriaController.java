@@ -21,7 +21,7 @@ public class CategoriaController {
    private CategoriaRepository categoriaRepository;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
-@GetMapping(value="/Categoria", produces="application/json")
+@GetMapping(value="/", produces="application/json")
    public ResponseEntity<List<Categoria>> getAllOperacoes(){
     List<Categoria> operacoes = (List<Categoria>) this.categoriaRepository.findAll();
 
