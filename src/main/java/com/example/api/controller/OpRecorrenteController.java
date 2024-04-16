@@ -26,7 +26,7 @@ public class OpRecorrenteController {
         List<OpRecorrente> operacoes = (List<OpRecorrente>) this.opRecorrenteRepository.findAll();
 
         return new ResponseEntity(operacoes, HttpStatus.OK);
-   }
+    }
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
     @PostMapping(value="/", produces="application/json")

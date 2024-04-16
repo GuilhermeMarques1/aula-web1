@@ -13,7 +13,6 @@ import java.util.List;
 import com.example.api.repository.CategoriaRepository;
 import com.example.api.model.Categoria;
 
-
 @Controller("CategoriaController")
 @RequestMapping(value = "/categoria")
 public class CategoriaController {
@@ -30,7 +29,7 @@ public class CategoriaController {
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
     @PostMapping(value="/", produces="application/json")
-    public ResponseEntity<Categoria> insertNewProduct (@RequestBody Categoria categoria){
+    public ResponseEntity<Categoria> insertNewCategoria (@RequestBody Categoria categoria){
 
         Categoria categoriaSalva = categoriaRepository.save(categoria);
 
