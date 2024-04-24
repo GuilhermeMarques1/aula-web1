@@ -32,6 +32,7 @@ public class SecurityConfigurations {
                         // Bloqueia o endpoint "/produto" no verbo GET. Libera apenas para ADMINs
                         .requestMatchers(HttpMethod.GET, "/operacao").authenticated()
                         .requestMatchers(HttpMethod.POST, "/operacao").authenticated()
+                        .requestMatchers(HttpMethod.GET, "/categoria/").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
